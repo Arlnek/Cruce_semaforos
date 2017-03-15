@@ -1,0 +1,23 @@
+
+
+if (modo == 0) then
+	
+	if manual_modo==1 then
+		dia = 1
+	else
+		dia=0
+	endif
+
+endif
+
+if ((modo == 1) and ((reloj_hora >= 8) and (reloj_hora < 24))) then
+
+	dia = 1
+
+endif
+
+if ((modo == 1) and ((reloj_hora >= 0) and (reloj_hora < 8))) then
+
+	dia = 0
+
+endif
