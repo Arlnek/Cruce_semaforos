@@ -1,0 +1,35 @@
+if dia == 0 then
+	
+	dia_sincro=1
+	
+	if ((noche_modo == 1) and (reloj_noche_camAMBAR >= ambar_parpadeo))then
+		semaforo_1[0] = 0
+		semaforo_1[1] = 0
+		semaforo_2[0] = 0
+		semaforo_2[1] = 0
+		semaforo_3[0] = 0
+		semaforo_3[1] = 0
+		semaforo_4[0] = 0
+		semaforo_4[1] = 0
+		semaforo_p=0
+		noche_modo = 0
+		reloj_noche_camAMBAR = 0
+	endif
+		
+	if ((noche_modo == 0) and (reloj_noche_camAMBAR >= ambar_parpadeo)) then
+		semaforo_1[0] = 1
+		semaforo_1[1] = 1
+		semaforo_2[0] = 1
+		semaforo_2[1] = 1
+		semaforo_3[0] = 1
+		semaforo_3[1] = 1
+		semaforo_4[0] = 1
+		semaforo_4[1] = 1
+		semaforo_p=1
+		noche_modo = 1
+		reloj_noche_camAMBAR = 0
+	endif
+		
+	reloj_noche_camAMBAR = reloj_noche_camAMBAR + reloj
+
+endif
