@@ -1,0 +1,15 @@
+ambar_parpadeo = 1
+ambar_tiempo = 2
+tiempo_cada_color = 10
+reloj_dia_cambio_sem = 0
+reloj_noche_camAMBAR = 2
+tiempo_rojo_extra = 2
+reloj_tiempo_rojo_ex = 0
+modo = 1
+dia = 1
+dia_modo = 2
+noche_modo = 1
+reloj = 1
+reloj_hora = 0
+reloj_minutos = 0
+reloj_segundos = 0
