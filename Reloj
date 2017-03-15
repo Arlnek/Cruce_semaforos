@@ -1,0 +1,15 @@
+reloj_segundos = reloj_segundos + reloj
+
+if reloj_segundos >= 60 then
+	reloj_minutos = reloj_minutos + 1
+	reloj_segundos = reloj_segundos - 60
+endif
+
+if reloj_minutos >= 60 then
+	reloj_hora = reloj_hora + 1
+	reloj_minutos = reloj_minutos - 60
+endif
+
+if reloj_hora == 24 then
+	reloj_hora = 0
+endif
