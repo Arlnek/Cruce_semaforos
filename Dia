@@ -1,0 +1,224 @@
+if (dia == 1) then
+
+	if dia_sincro==1 then
+		
+		aux_seg=(reloj_segundos/10)
+		reloj_dia_cambio_sem=reloj_segundos-(aux_seg*10)
+		dia_sincro=0
+		dia_modo=2
+
+	endif
+	
+	if (reloj_dia_cambio_sem >= tiempo_cada_color) then
+		dia_modo = dia_modo +1
+		reloj_dia_cambio_sem = 0
+		if (dia_modo == 5) then
+			dia_modo = 1
+		endif
+	endif
+	
+	if	(dia_modo == 1) then
+
+		if ((not rojos_extras[0]) or (rojos_extras[0] and (reloj_dia_cambio_sem >= tiempo_rojo_extra))) then
+
+			semaforo_1[0]=1
+			semaforo_1[1]=0
+		endif
+
+		if ((not rojos_extras[1]) or (rojos_extras[1] and (reloj_dia_cambio_sem >= tiempo_rojo_extra))) then
+
+			semaforo_2[0]=1
+			semaforo_2[1]=0
+		endif
+
+		if ((not rojos_extras[2]) or (rojos_extras[2] and (reloj_dia_cambio_sem >= tiempo_rojo_extra))) then
+
+			semaforo_3[0]=1
+			semaforo_3[1]=0
+		endif
+
+		if ((not rojos_extras[3]) or (rojos_extras[3] and (reloj_dia_cambio_sem >= tiempo_rojo_extra))) then
+
+			semaforo_4[0]=1
+			semaforo_4[1]=0
+
+		endif
+		
+		semaforo_p=1
+
+		if (reloj_dia_cambio_sem >= (tiempo_cada_color-1)) then
+
+			rojos_extras[0]=1
+			rojos_extras[1]=1
+			rojos_extras[2]=1
+			rojos_extras[3]=1
+
+		endif
+		
+
+
+	endif
+
+rem a-------------------------------------------------------------------------------
+
+
+	if	(dia_modo == 2) then
+
+		semaforo_p=0
+
+		if ((not rojos_extras[0]) or (rojos_extras[0] and (reloj_dia_cambio_sem >= tiempo_rojo_extra))) then
+
+			semaforo_1[0]=1
+			semaforo_1[1]=0
+
+		endif
+
+		if ((not rojos_extras[1]) or (rojos_extras[1] and (reloj_dia_cambio_sem >= tiempo_rojo_extra))) then
+
+			if ((tiempo_cada_color - reloj_dia_cambio_sem) <= ambar_tiempo) then
+
+				semaforo_2[0]=1
+				semaforo_2[1]=1
+
+			else
+
+				semaforo_2[0]=0
+				semaforo_2[1]=1
+
+			endif
+		endif
+
+		if ((not rojos_extras[2]) or (rojos_extras[2] and (reloj_dia_cambio_sem >= tiempo_rojo_extra))) then
+
+			semaforo_3[0]=1
+			semaforo_3[1]=0
+
+		endif
+
+		if ((not rojos_extras[3]) or (rojos_extras[3] and (reloj_dia_cambio_sem >= tiempo_rojo_extra))) then
+
+			if ((tiempo_cada_color - reloj_dia_cambio_sem) <= ambar_tiempo) then
+
+				semaforo_4[0]=1
+				semaforo_4[1]=1
+
+			else
+				semaforo_4[0]=0
+				semaforo_4[1]=1
+
+			endif
+		endif
+
+		if (reloj_dia_cambio_sem >= (tiempo_cada_color-1)) then
+
+			rojos_extras[0]=1
+			rojos_extras[1]=0
+			rojos_extras[2]=1
+			rojos_extras[3]=0
+
+		endif
+	endif
+
+rem a---------------------------------------------------------------------------------
+
+if	(dia_modo == 3) then
+		
+		semaforo_p=0
+
+		if ((not rojos_extras[0]) or (rojos_extras[0] and (reloj_dia_cambio_sem >= tiempo_rojo_extra))) then
+			
+			semaforo_1[0]=1
+			semaforo_1[1]=0
+
+		endif
+
+		if ((not rojos_extras[1]) or (rojos_extras[1] and (reloj_dia_cambio_sem >= tiempo_rojo_extra))) then
+
+			semaforo_2[0]=1
+			semaforo_2[1]=0
+
+		endif
+
+		if ((not rojos_extras[2]) or (rojos_extras[2] and (reloj_dia_cambio_sem >= tiempo_rojo_extra))) then
+			if ((tiempo_cada_color - reloj_dia_cambio_sem) <= ambar_tiempo) then
+
+				semaforo_3[0]=1
+				semaforo_3[1]=1
+			else 
+				
+				semaforo_3[0]=0
+				semaforo_3[1]=1
+			endif
+		endif
+
+		if ((not rojos_extras[3]) or (rojos_extras[3] and (reloj_dia_cambio_sem >= tiempo_rojo_extra))) then
+
+			semaforo_4[0]=1
+			semaforo_4[1]=0
+
+		endif
+			
+		if (reloj_dia_cambio_sem >= (tiempo_cada_color-1)) then
+
+			rojos_extras[0]=1
+			rojos_extras[1]=1
+			rojos_extras[2]=0
+			rojos_extras[3]=1
+
+		endif
+
+	endif
+
+rem a---------------------------------------------------------------------------------
+
+if	(dia_modo == 4) then
+
+		semaforo_p=0
+
+		if ((not rojos_extras[0]) or (rojos_extras[0] and (reloj_dia_cambio_sem >= tiempo_rojo_extra))) then
+
+			if ((tiempo_cada_color - reloj_dia_cambio_sem) <= ambar_tiempo) then
+
+				semaforo_1[0]=1
+				semaforo_1[1]=1
+
+			else 
+
+				semaforo_1[0]=0
+				semaforo_1[1]=1
+
+			endif
+		endif
+
+		if ((not rojos_extras[1]) or (rojos_extras[1] and (reloj_dia_cambio_sem >= tiempo_rojo_extra))) then
+
+			semaforo_2[0]=1
+			semaforo_2[1]=0
+		endif
+
+		if ((not rojos_extras[2]) or (rojos_extras[2] and (reloj_dia_cambio_sem >= tiempo_rojo_extra))) then
+		
+			semaforo_3[0]=1
+			semaforo_3[1]=0
+
+		endif
+
+		if ((not rojos_extras[3]) or (rojos_extras[3] and (reloj_dia_cambio_sem >= tiempo_rojo_extra))) then
+			
+			semaforo_4[0]=1
+			semaforo_4[1]=0
+
+		endif
+
+		if (reloj_dia_cambio_sem >= (tiempo_cada_color-1)) then
+			rojos_extras[0]=0
+			rojos_extras[1]=1
+			rojos_extras[2]=1
+			rojos_extras[3]=1
+		endif
+
+	endif
+					
+	reloj_dia_cambio_sem = reloj_dia_cambio_sem + reloj
+	
+endif	
